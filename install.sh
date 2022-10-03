@@ -35,7 +35,7 @@ curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSIO
 curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSION}/cmd/kubepkg/templates/latest/deb/kubeadm/10-kubeadm.conf" | sed "s:/usr/bin:${DOWNLOAD_DIR}:g" | tee /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 curl -sSL --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet}
 
-chmod +x {kubeadm,kubelet,kubectl}
+chmod +x {kubeadm,kubelet}
 mv {kubeadm,kubelet} $DOWNLOAD_DIR/
 
 systemctl enable --now kubelet && systemctl start kubelet
