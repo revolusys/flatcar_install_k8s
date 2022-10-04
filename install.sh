@@ -20,11 +20,11 @@ net.ipv4.ip_forward                 = 1
 EOF
 sysctl --system
 
-CNI_VERSION="v1.1.1"
+CNI_VERSION="v1.0.1"
 CRICTL_VERSION="v1.24.3"
 RELEASE_VERSION="v0.14.0"
 DOWNLOAD_DIR=/opt/bin
-RELEASE="v1.23.6"
+RELEASE="v1.23.9"
 
 
 
@@ -40,3 +40,6 @@ mv {kubeadm,kubelet} $DOWNLOAD_DIR/
 
 systemctl enable --now kubelet && systemctl start kubelet
 systemctl status kubelet
+
+kubeadm join 192.168.1.61:6443 --token o9xx96.y6pavfnjt9m2b77p --discovery-token-ca-cert-hash sha256:539ea94db3638c8f9cad2a57d9f76dcaaa1896593c84f0720e980fea02fa450b
+
